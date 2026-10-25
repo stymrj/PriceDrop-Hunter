@@ -18,7 +18,7 @@ const STORES = [
 
 const ARROW = '<svg class="ic" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 11l3.5-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13.8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 const icon = d => `<svg class="ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
-const CHECK = icon('<path d="M20 6 9 17l-5-5"/>'), NEXT = icon('<path d="M5 12h14M13 6l6 6-6 6"/>'), EXT = icon('<path d="M14 3h7v7M10 14 21 3M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/>'), CODE = icon('<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>'), BOT = icon('<path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/>');
+const CHECK = icon('<path d="M20 6 9 17l-5-5"/>'), NEXT = icon('<path d="M5 12h14M13 6l6 6-6 6"/>'), EXT = icon('<path d="M14 3h7v7M10 14 21 3M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/>');
 const page = s => PAGES + s.repo + '/';
 
 // Universal bookmark: picks the store from the hostname and loads that tool's latest build.
@@ -30,13 +30,12 @@ const chips = STORES.map(s => `<a class="chip" href="${page(s)}" style="backgrou
 const stores = STORES.map(s => `<div class="store">
       <div class="top" style="background:${s.hd}"><i style="background:${s.ac};color:${s.on}">${ARROW}</i><b>${s.name}</b></div>
       <div class="bd"><p>${s.desc}</p><ul>${s.points.map(p => `<li>${CHECK}${p}</li>`).join('')}</ul>
-        <div class="acts"><a class="sb fill" href="${page(s)}" style="background:${s.hd}">Install page ${NEXT}</a><a class="sb" href="${s.open}" target="_blank" rel="noopener">${EXT}Open ${s.name}</a><a class="sb" href="https://github.com/stymrj/${s.repo}" target="_blank" rel="noopener">${CODE}Code</a></div></div>
+        <div class="acts"><a class="sb fill" href="${page(s)}" style="background:${s.hd}">Install page ${NEXT}</a><a class="sb" href="${s.open}" target="_blank" rel="noopener">${EXT}Open ${s.name}</a></div></div>
     </div>`).join('\n    ');
-const botLinks = STORES.filter(s => s.bot).map(s => `<a class="sb" href="https://github.com/stymrj/${s.repo}#telegram-bot-github-actions" target="_blank" rel="noopener">${BOT}${s.name}</a>`).join('');
 
 const attr = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const tpl = fs.readFileSync(path.join(__dirname, 'src/index.tpl.html'), 'utf8');
-const out = tpl.replace('__UNIVERSAL__', () => attr(universal)).replace('__CHIPS__', () => chips).replace('__STORES__', () => stores).replace('__BOTLINKS__', () => botLinks);
+const out = tpl.replace('__UNIVERSAL__', () => attr(universal)).replace('__CHIPS__', () => chips).replace('__STORES__', () => stores);
 fs.writeFileSync(path.join(__dirname, 'index.html'), out);
 fs.writeFileSync(path.join(__dirname, 'universal-bookmark.txt'), universal);
 console.log('index.html built · universal bookmark:', universal.length, 'chars');
