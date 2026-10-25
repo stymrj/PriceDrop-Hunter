@@ -24,7 +24,8 @@ h1,h2,h3{font-family:var(--hf)}
 .links a.tgnav{display:inline-flex;align-items:center;gap:7px;background:#229ed9;color:#fff;padding:8px 15px;border-radius:99px;font-weight:700;box-shadow:0 4px 14px rgba(34,158,217,.35)}.links a.tgnav:hover{background:#1c8bc0;color:#fff}
 @media(max-width:900px){.links a.tgnav{display:inline-flex;padding:8px 12px}}
 .links a.tgnav,.brand{white-space:nowrap}
-@media(max-width:600px){.tgfull{display:none}.links{gap:10px}}
+@media(max-width:600px){.tgfull{display:none}.links{gap:8px}nav{gap:10px}nav .brand{font-size:16px;gap:8px}nav .mk{width:30px;height:30px}.hero>.wrap,header.hero .wrap{padding-left:16px;padding-right:16px}.nb{width:36px;height:36px}}
+@media(max-width:400px){.tgtxt{display:none}.links a.tgnav{padding:0;width:36px;height:36px;justify-content:center}}
 .hsteps{margin:14px 0 0;padding-left:20px;display:grid;gap:8px;color:var(--mt)}.hsteps b{color:var(--tx)}
 .tlink{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:99px;background:#229ed9;color:#fff;font-weight:700;font-size:13.5px;text-decoration:none;margin:12px 8px 0 0}
 
@@ -115,7 +116,7 @@ footer .h{color:var(--ac)}
 <header class="hero" id="top"><div class="wrap">
   <nav>
     <a class="brand" href="#top"><span class="mk"><svg class="ic" viewBox="0 0 16 16" width="19" height="19" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 11l3.5-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13.8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>PriceDrop Hunter</a>
-    <div class="links"><a href="#stores">Stores</a><a href="#install">Install</a><a class="tgnav" href="#alerts"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="tgfull">Set up </span>Telegram</a><a href="#faq">FAQ</a><button class="nb" id="theme" type="button" title="Toggle theme"></button></div>
+    <div class="links"><a href="#stores">Stores</a><a href="#install">Install</a><a class="tgnav" href="#alerts"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="tgfull">Set up </span><span class="tgtxt">Telegram</span></a><a href="#faq">FAQ</a><button class="nb" id="theme" type="button" title="Toggle theme"></button></div>
   </nav>
   <div class="hgrid">
     <div>
