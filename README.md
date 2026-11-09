@@ -30,11 +30,9 @@ Every store has a v2 release on the `v2` branch of its repo: the current fetch l
 | Croma | https://stymrj.github.io/Croma-Deals/ | https://github.com/stymrj/Croma-Deals | [Install page](https://stymrj.github.io/Croma-Deals/) |
 | JioMart | https://stymrj.github.io/JioMart-Deals/ | https://github.com/stymrj/JioMart-Deals | [Install page](https://stymrj.github.io/JioMart-Deals/) |
 
-jsDelivr loader for the v2 branch of any store (replace the repo name as needed):
+No CDN loader for the v2 branch (see below):
 
-```javascript
-javascript:(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/stymrj/JioMart-Deals@v2/dist/deals.js?t='+Date.now();document.body.appendChild(s);})()
-```
+There is no CDN loader for the `v2` branch: the old jsDelivr form (`…/JioMart-Deals@v2/dist/deals.js`) was removed because jsDelivr reads `@v2` as a version range, not a branch name, so it answers 404 — and GitHub Pages serves `main`, not `v2`, so a Pages URL would load the old build until the v2 PRs merge. Use the per-store mobile loader on each install page (it fetches the latest build from GitHub Pages) or the userscript instead.
 
 ## What changed in v2 (8 November 2026)
 
@@ -48,6 +46,7 @@ javascript:(function(){var s=document.createElement('script');s.src='https://cdn
 - **Compare page** ([compare.html](https://stymrj.github.io/PriceDrop-Hunter/compare.html)): same product/keyword across all nine stores in one table, ranked by discount — a sample table with illustrative prices, a working paste-CSV mode that merges each store's Hunter export into one ranked table (browser-only), and six live-test steps for a real comparison. Tested with `node test-compare.js`.
 - **JioMart v2.1** (see that repo's CHANGELOG): empty-state diagnostics that name the cause of 0 results, a built-in self-test button, retry with exponential backoff, deeper scans with per-page progress, a cross-category best-value row, multi-keyword search, and bot multi-pincode scans + CSV/JSON export.
 - **Bookmark name fixed (2026-11-09):** the universal install button now reads **PriceDrop Hunter — All Stores** instead of the generic “PriceDrop Hunter”, so it no longer collides with the nine per-store bookmarks.
+- **Fixed (2026-11-09):** store-card counts corrected against the v2 code — Flipkart Minutes has 12 departments (not 14), BigBasket 9 categories (not 13), Myntra 10 categories (not 35), Amazon Now 34 keywords and 12 categories (not “35+ keywords and categories”). The dead jsDelivr loader (`…@v2/dist/deals.js`, which answers 404 because jsDelivr reads `@v2` as a version range) was removed from the hub page and README, with no CDN loader replacing it yet. The universal bookmark is about 1,200 characters, not “a few hundred”. JioMart's card now says its Python bot runs on GitHub Actions (hourly), not “run it on your own machine or a free host”.
 
 ## Install (universal bookmark)
 
@@ -73,7 +72,7 @@ Every tool has the same workspace: best-deal ranking, price history, saved items
 
 **In the browser.** After each scan, Hunter sends new deals, price drops and cheaper saved items to your own Telegram bot. Create a bot with `@BotFather` (`/newbot`), press **Start** in it, get your chat ID from `@userinfobot`, then paste both into Hunter (press **Telegram** in the top bar) and send a test. Your token stays in your browser.
 
-**Around the clock.** GitHub Actions bots scan every 30 minutes for Flipkart Minutes, Blinkit, Amazon Now and BigBasket. JioMart uses its own Python bot (`bot-v2/` in the JioMart-Deals repo) — run it on your own machine or a free host; it needs your own Telegram bot token and pincode, and no token is shipped in the repo.
+**Around the clock.** GitHub Actions bots scan on a schedule and send new deals, price drops and restocks: every 30 minutes for Flipkart Minutes, Blinkit, Amazon Now and BigBasket (plus a morning catalogue), and hourly for JioMart — its Python bot (`bot-v2/` in the JioMart-Deals repo, `.github/workflows/telegram-bot.yml`, hourly 08:45–23:45 IST, gated by the `BOT_ENABLED` repo variable; see that repo's README for the secrets and variables). Zepto, Swiggy Instamart, Myntra and Croma run on the same 30-minute schedule (their bots are in each repo's `.github/workflows/telegram-bot.yml`, gated by the `BOT_ENABLED` repo variable).
 
 ## Troubleshooting
 

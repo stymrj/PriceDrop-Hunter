@@ -5,21 +5,21 @@ const PAGES = 'https://stymrj.github.io/';
 
 const STORES = [
   { name: 'Flipkart Minutes', repo: 'Flipkart-Minute-Deals', open: 'https://www.flipkart.com/', host: 'flipkart.com', tag: 'FKM', hd: '#2874f0', ac: '#ffe500', on: '#111', bot: true,
-    desc: 'Scans every Minutes department in seconds and ranks deals by real savings.', points: ['14 departments', 'Pincode aware', 'Telegram bot on GitHub Actions'] },
+    desc: 'Scans every Minutes department in seconds and ranks deals by real savings.', points: ['12 departments', 'Pincode aware', 'Telegram bot on GitHub Actions'] },
   { name: 'Blinkit', repo: 'Blinkit-Deals', open: 'https://blinkit.com/', host: 'blinkit.com', tag: 'BDS', hd: '#0c831f', ac: '#f8cb46', on: '#111', bot: true,
     desc: 'Sweeps dozens of keywords and collections for your delivery address.', points: ['45+ keywords and collections', 'Reads your location automatically', 'Telegram bot on GitHub Actions'] },
   { name: 'Amazon Now', repo: 'Amazon-Now-Deals', open: 'https://www.amazon.in/tez/browse/home', host: 'amazon.in', tag: 'ANR', hd: '#232f3e', ac: '#ff9900', on: '#111', bot: true,
-    desc: 'Scans Amazon Now categories and keyword searches, with rate-limit back-off.', points: ['35+ keywords and categories', 'Brand ID detected for you', 'Telegram bot on GitHub Actions'] },
+    desc: 'Scans Amazon Now categories and keyword searches, with rate-limit back-off.', points: ['34 keywords and 12 categories', 'Brand ID detected for you', 'Telegram bot on GitHub Actions'] },
   { name: 'Swiggy Instamart', repo: 'Swiggy-Instamart-Deals', open: 'https://www.swiggy.com/instamart', host: 'swiggy.com', tag: 'IMS', hd: '#e8650a', ac: '#2b1d16', on: '#fff', bot: false,
     desc: 'Collects deals as you browse Instamart, with an auto-scroll helper.', points: ['Captures as you browse', 'Auto-scroll to load more', 'Telegram alerts from the browser'] },
   { name: 'BigBasket', repo: 'BigBasket-Deals', open: 'https://www.bigbasket.com/', host: 'bigbasket.com', tag: 'BBD', hd: '#4a7c14', ac: '#ffd23f', on: '#111', bot: true,
-    desc: 'Scans BigBasket categories slowly and politely to avoid blocks.', points: ['13 categories', 'Gentle, steady scanning', 'Telegram bot on GitHub Actions'] },
+    desc: 'Scans BigBasket categories slowly and politely to avoid blocks.', points: ['9 categories', 'Gentle, steady scanning', 'Telegram bot on GitHub Actions'] },
   { name: 'Zepto', repo: 'Zepto-Deals', open: 'https://www.zepto.com/', host: 'zepto.com', tag: 'ZPT', hd: '#4c1d95', ac: '#ff3269', on: '#fff', bot: false,
     desc: 'Reads every Zepto category and its sub-categories for your location.', points: ['22 categories plus sub-categories', 'Uses your saved Zepto location', 'Telegram alerts from the browser'] },
   { name: 'JioMart', repo: 'JioMart-Deals', open: 'https://www.jiomart.com/', host: 'jiomart.com', tag: 'JMQ', hd: '#0078ad', ac: '#ffd43b', on: '#111', bot: true,
-    desc: 'Scans JioMart categories sorted by discount, with inflated list prices filtered out.', points: ['20 categories', 'Uses your saved pincode', 'Python Telegram bot (bot-v2)'] },
+    desc: 'Scans JioMart categories sorted by discount, with inflated list prices filtered out.', points: ['20 categories', 'Uses your saved pincode', 'Python Telegram bot on GitHub Actions'] },
   { name: 'Myntra', repo: 'Myntra-Deals', open: 'https://www.myntra.com/', host: 'myntra.com', tag: 'MYN', hd: '#d6204e', ac: '#ffe28a', on: '#111', bot: false,
-    desc: 'Fashion, footwear, beauty and accessories, sorted by discount.', points: ['35 categories', 'No sign-in needed', 'Telegram alerts from the browser'] },
+    desc: 'Fashion, footwear, beauty and accessories, sorted by discount.', points: ['10 categories', 'No sign-in needed', 'Telegram alerts from the browser'] },
   { name: 'Croma', repo: 'Croma-Deals', open: 'https://www.croma.com/', host: 'croma.com', tag: 'CRM', hd: '#11161f', ac: '#12daa8', on: '#111', bot: false,
     desc: 'Electronics price cuts across TVs, phones, laptops and appliances.', points: ['13 categories', 'Uses your saved pincode', 'Telegram alerts via the userscript'] }
 ];
