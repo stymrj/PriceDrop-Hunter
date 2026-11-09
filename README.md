@@ -47,12 +47,13 @@ javascript:(function(){var s=document.createElement('script');s.src='https://cdn
 
 - **Compare page** ([compare.html](https://stymrj.github.io/PriceDrop-Hunter/compare.html)): same product/keyword across all nine stores in one table, ranked by discount — a sample table with illustrative prices, a working paste-CSV mode that merges each store's Hunter export into one ranked table (browser-only), and six live-test steps for a real comparison. Tested with `node test-compare.js`.
 - **JioMart v2.1** (see that repo's CHANGELOG): empty-state diagnostics that name the cause of 0 results, a built-in self-test button, retry with exponential backoff, deeper scans with per-page progress, a cross-category best-value row, multi-keyword search, and bot multi-pincode scans + CSV/JSON export.
+- **Bookmark name fixed (2026-11-09):** the universal install button now reads **PriceDrop Hunter — All Stores** instead of the generic “PriceDrop Hunter”, so it no longer collides with the nine per-store bookmarks.
 
 ## Install (universal bookmark)
 
-**Desktop.** Drag the yellow **PriceDrop Hunter** button on the live page to your bookmarks bar.
+**Desktop.** Drag the yellow **PriceDrop Hunter — All Stores** button on the live page to your bookmarks bar.
 
-**Mobile.** Tap **Copy for mobile** on the live page, bookmark any page, and paste the code as the bookmark's address. Then open any of the nine stores and use it from the address bar — the bookmark sees which store you are on and opens that store's tool.
+**Mobile.** Tap **Copy for mobile** on the live page, bookmark any page, name it **PriceDrop Hunter — All Stores**, and paste the code as the bookmark's address. Then open any of the nine stores and use it from the address bar — the bookmark sees which store you are on and opens that store's tool.
 
 **Per store.** Each store's live page also has its own full bookmarklet and a userscript (`dist/<store>-deals.user.js` in that repo). Use the per-store bookmark or userscript for BigBasket and Croma, which block tools loaded from other sites.
 
