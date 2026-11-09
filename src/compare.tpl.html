@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare prices across all nine stores — PriceDrop Hunter</title>
+<meta name="description" content="Compare the same product or keyword across Flipkart Minutes, Blinkit, Amazon Now, Swiggy Instamart, BigBasket, Zepto, JioMart, Myntra and Croma, ranked by discount.">
+<meta name="theme-color" content="#101218">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f4f5f8;--sf:#fff;--tx:#101218;--mt:#5f6573;--bd:#e2e5eb;--ink:#101218;--ac:#ffd43b;--ok:#0b8a3d;--hf:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root[data-theme=dark]{--bg:#0d0f14;--bg2:#13161c;--sf:#181b22;--tx:#eef0f4;--mt:#9097a6;--bd:#2a2f3a}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d0f14;--bg2:#13161c;--sf:#181b22;--tx:#eef0f4;--mt:#9097a6;--bd:#2a2f3a}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--hf)}
+.hero{background:var(--ink);color:#fff}
+nav{display:flex;align-items:center;gap:26px;height:76px}
+.brand{display:flex;align-items:center;gap:11px;font:800 19px/1 var(--hf);text-decoration:none;color:#fff}
+.mk{width:34px;height:34px;border-radius:10px;background:var(--ac);color:#111;display:grid;place-items:center}
+.links{margin-left:auto;display:flex;gap:24px;align-items:center}
+.links a{color:rgba(255,255,255,.8);font-weight:600;font-size:15px;text-decoration:none}.links a:hover{color:#fff}
+.hgrid{padding:44px 0 64px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.03em;font-weight:800;margin:16px 0 0}
+h1 span{color:var(--ac)}
+.lead{font-size:18px;opacity:.85;max-width:38em;margin:20px 0 0}
+section{padding:56px 0}
+.alt{background:var(--bg2)}
+.label{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mt)}
+h2{font-size:clamp(26px,3.5vw,40px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:10px 0 14px;max-width:24ch}
+.sub{color:var(--mt);font-size:17px;max-width:40em}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:22px;padding:28px;margin-top:24px}
+.tag{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--bg2);border-radius:6px;padding:3px 8px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+th{color:var(--mt);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+td b{font-size:16px}
+.disc{font-weight:800;color:var(--ok)}
+tr.best td{background:rgba(11,138,61,.07)}
+.rank{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;font-weight:800;font-size:13px}
+input,select,textarea{font:inherit;color:inherit}
+input[type=text]{width:100%;max-width:520px;height:46px;padding:0 16px;border:1px solid var(--bd);border-radius:12px;background:var(--sf);outline:0;font-weight:600}
+input[type=text]:focus,select:focus,textarea:focus{border-color:var(--tx)}
+select{height:46px;border:1px solid var(--bd);border-radius:12px;background:var(--sf);padding:0 12px;font-weight:600}
+textarea{width:100%;min-height:130px;border:1px solid var(--bd);border-radius:12px;background:var(--sf);padding:12px;font:13px ui-monospace,Menlo,monospace;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:800;font-size:15px;font-family:inherit;cursor:pointer;border:0;background:var(--ac);color:#111}
+.btn.ghost{background:var(--sf);color:var(--tx);border:1px solid var(--bd)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.steps{margin:14px 0 0;padding-left:20px;display:grid;gap:10px;color:var(--mt)}
+.steps b{color:var(--tx)}
+.steps li::marker{font-weight:800;color:var(--tx)}
+.note{color:var(--mt);font-size:14.5px}
+.note b{color:var(--tx)}
+footer{background:var(--ink);color:#fff}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:38px;padding-bottom:38px}
+footer a{font-weight:800;text-decoration:underline;text-underline-offset:3px}
+footer .h{color:var(--ac)}
+.tblwrap{overflow-x:auto}
+@media(max-width:700px){.links a{display:none}table{font-size:14px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <nav>
+    <a class="brand" href="index.html"><span class="mk"><svg viewBox="0 0 16 16" width="19" height="19" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 11l3.5-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13.8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>PriceDrop Hunter</a>
+    <div class="links"><a href="index.html#stores">Stores</a><a href="index.html#install">Install</a><a href="compare.html">Compare</a><a href="index.html#faq">FAQ</a></div>
+  </nav>
+  <div class="hgrid">
+    <span class="kicker">Compare · v2.1</span>
+    <h1>One product. <span>Nine stores.</span> Ranked by discount.</h1>
+    <p class="lead">Type a keyword to filter the sample below, or paste CSV exports from each store's Hunter to build a real comparison from your own prices — no account, nothing uploaded, everything stays in your browser.</p>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <span class="label">Sample comparison</span>
+  <h2>Same product, nine prices.</h2>
+  <p class="sub">Sample keyword: <b>boAt Airdopes 141</b> — one row per store, ranked by discount. These are illustrative prices to show the layout, not live prices: stores change prices by pincode and by the hour.</p>
+  <div class="card">
+    <label for="kw" style="font-weight:800">Filter the sample</label>
+    <div class="row"><input type="text" id="kw" placeholder="Try: amazon, croma, jiomart…" autocomplete="off"></div>
+    <div class="tblwrap"><table id="sample">
+      <thead><tr><th>#</th><th>Product</th><th>Store</th><th>Price</th><th>MRP</th><th>Discount</th><th>You save</th><th></th></tr></thead>
+      <tbody>__COMPARE_ROWS__</tbody>
+    </table></div>
+    <p class="note" style="margin-top:12px"><b>Sample data.</b> Prices below are illustrative, not live. For real prices, use the live test below or paste CSV exports.</p>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="label">Your prices</span>
+  <h2>Paste CSV exports, get one ranked table.</h2>
+  <p class="sub">Every store's Hunter exports the same CSV (<b>Title, Brand, Category, Price, MRP, Discount %, Saving, In stock, URL</b>). Paste one store's export at a time, pick the store, and press <b>Add rows</b>. Rows merge into one table ranked by discount, saved in this browser only.</p>
+  <div class="card">
+    <div class="row">
+      <select id="csvstore" aria-label="Store for these rows">__STORE_OPTIONS__</select>
+      <button class="btn" id="addcsv" type="button">Add rows</button>
+      <button class="btn ghost" id="clearcsv" type="button">Clear saved rows</button>
+    </div>
+    <div class="row"><textarea id="csvtext" placeholder="Paste a Hunter CSV export here — including its header row. One store at a time." aria-label="CSV export to compare"></textarea></div>
+    <p class="note" id="csvmsg" style="margin-top:10px"></p>
+    <div class="tblwrap"><table id="merged">
+      <thead><tr><th>#</th><th>Product</th><th>Store</th><th>Price</th><th>MRP</th><th>Discount</th><th>You save</th><th></th></tr></thead>
+      <tbody><tr class="emptyrow"><td colspan="8" class="note">Nothing pasted yet. Export a CSV from any store's Hunter and paste it above.</td></tr></tbody>
+    </table></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="label">Live test</span>
+  <h2>Check a real price in about five minutes.</h2>
+  <p class="sub">The sample above is illustrative. This is how to run a real cross-store comparison for any keyword:</p>
+  <div class="card"><ol class="steps">
+    <li><b>Pick one keyword</b> — a product sold on several stores, e.g. <b>boAt Airdopes 141</b> for electronics or <b>Aashirvaad Atta 10 kg</b> for groceries (Myntra and Croma do not stock groceries, so compare those two on electronics or fashion instead).</li>
+    <li><b>Install each store's Hunter</b> from its <a href="index.html#stores">install page</a> (bookmarklet or userscript), then open the store and set your delivery pincode or address.</li>
+    <li><b>On each store, open Hunter, press Scan, and search your keyword</b> in the search box (commas mean "or" on JioMart: <b>airdopes, earbuds</b>).</li>
+    <li><b>Export CSV</b> from each store (menu → Export → CSV) and paste each file here, one store at a time — or just note the best price per store and compare by hand.</li>
+    <li><b>Compare like for like:</b> same variant and pack size, same pincode, in-stock only. Prices differ by delivery address, so a comparison only means something for one pincode at one time.</li>
+    <li><b>Sanity-check the winner:</b> open the product on the winning store and confirm the price and delivery slot before buying — a scanned price can change between scan and checkout.</li>
+  </ol></div>
+</div></section>
+
+<footer><div class="wrap">
+  <a class="brand" href="index.html" style="color:#fff"><span class="mk"><svg viewBox="0 0 16 16" width="19" height="19" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 11l3.5-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13.8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>PriceDrop Hunter</a>
+  <p>Made with <span class="h">♥</span> by <a href="https://www.linkedin.com/in/satyamraj1" target="_blank" rel="noopener">Satyam Raj</a></p>
+</div></footer>
+
+<script>
+(function(){
+  // Sample table: keyword filter.
+  var kw = document.getElementById('kw');
+  kw.addEventListener('input', function(){
+    var q = kw.value.trim().toLowerCase();
+    document.querySelectorAll('#sample tbody tr').forEach(function(tr){
+      tr.style.display = !q || tr.textContent.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+
+  // Merged table: Hunter CSV exports (Title,Brand,Category,Price,MRP,Discount %,Saving,In stock,URL).
+  var KEY = 'pdh_compare_rows';
+  var storeSel = document.getElementById('csvstore');
+  var msg = document.getElementById('csvmsg');
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e){ return []; } }
+  function save(rows){ try { localStorage.setItem(KEY, JSON.stringify(rows)); } catch(e){} }
+  function inr(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function parseCSV(text){
+    var rows = [], cur = [''], q = false;
+    for (var i = 0; i < text.length; i++){
+      var ch = text[i];
+      if (q){ if (ch === '"'){ if (text[i+1] === '"'){ cur[cur.length-1] += '"'; i++; } else q = false; } else cur[cur.length-1] += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ','){ cur.push(''); }
+      else if (ch === '\n' || ch === '\r'){ if (ch === '\r' && text[i+1] === '\n') i++; if (cur.join('').trim()) rows.push(cur); cur = ['']; }
+      else cur[cur.length-1] += ch;
+    }
+    if (cur.join('').trim()) rows.push(cur);
+    return rows;
+  }
+  function render(){
+    var rows = load().sort(function(a,b){ return b.disc - a.disc || b.save - a.save; });
+    var tb = document.querySelector('#merged tbody');
+    if (!rows.length){
+      tb.innerHTML = '<tr class="emptyrow"><td colspan="8" class="note">Nothing pasted yet. Export a CSV from any store\'s Hunter and paste it above.</td></tr>';
+      return;
+    }
+    tb.innerHTML = rows.map(function(r, i){
+      return '<tr class="' + (i === 0 ? 'best' : '') + '"><td><span class="rank">' + (i+1) + '</span></td><td><b>' + esc(r.title) + '</b></td><td>' + esc(r.store) + '</td><td><b>' + inr(r.price) + '</b></td><td>' + inr(r.mrp) + '</td><td class="disc">' + r.disc + '%</td><td>' + inr(r.save) + '</td><td>' + (r.url ? '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">Open</a>' : '') + '</td></tr>';
+    }).join('');
+  }
+  document.getElementById('addcsv').onclick = function(){
+    var text = document.getElementById('csvtext').value;
+    if (!text.trim()){ msg.textContent = 'Paste a CSV export first.'; return; }
+    var grid = parseCSV(text);
+    if (grid.length < 2){ msg.textContent = 'Could not read that CSV — paste the full export, header row included.'; return; }
+    var head = grid[0].map(function(h){ return h.trim().toLowerCase(); });
+    var ci = function(name){ return head.indexOf(name); };
+    var ti = ci('title'), pi = ci('price'), mi = ci('mrp'), di = ci('discount %'), si = ci('saving'), ui = ci('url');
+    if (ti < 0 || pi < 0 || mi < 0){ msg.textContent = 'This does not look like a Hunter CSV export — expected columns Title, Price, MRP, Discount %, Saving, URL.'; return; }
+    var store = storeSel.value, added = 0, rows = load();
+    grid.slice(1).forEach(function(c){
+      var price = parseFloat(String(c[pi] || '').replace(/,/g, '')) || 0;
+      var mrp = parseFloat(String(c[mi] || '').replace(/,/g, '')) || 0;
+      if (!c[ti] || !price) return;
+      var disc = di >= 0 && c[di] !== '' ? parseFloat(c[di]) || 0 : (mrp > price ? Math.round((mrp - price) / mrp * 100) : 0);
+      var save = si >= 0 && c[si] !== '' ? parseFloat(String(c[si]).replace(/,/g, '')) || 0 : mrp - price;
+      rows.push({ title: c[ti], store: store, price: price, mrp: mrp, disc: disc, save: save, url: ui >= 0 ? (c[ui] || '') : '' });
+      added++;
+    });
+    // De-dupe: same store + same title keeps the best discount.
+    var seen = {};
+    rows = rows.filter(function(r){ var k = r.store + '|' + r.title.toLowerCase(); if (!seen[k] || r.disc > seen[k].disc) seen[k] = r; return true; });
+    rows = Object.keys(seen).map(function(k){ return seen[k]; });
+    save(rows);
+    document.getElementById('csvtext').value = '';
+    msg.textContent = added ? ('Added ' + added + ' row(s) from ' + store + '. ' + rows.length + ' row(s) in the comparison.') : 'No usable rows in that paste — check the columns.';
+    render();
+  };
+  document.getElementById('clearcsv').onclick = function(){ save([]); msg.textContent = 'Saved rows cleared.'; render(); };
+  render();
+})();
+</script>
+</body>
+</html>

@@ -16,8 +16,8 @@ const STORES = [
     desc: 'Scans BigBasket categories slowly and politely to avoid blocks.', points: ['13 categories', 'Gentle, steady scanning', 'Telegram bot on GitHub Actions'] },
   { name: 'Zepto', repo: 'Zepto-Deals', open: 'https://www.zepto.com/', host: 'zepto.com', tag: 'ZPT', hd: '#4c1d95', ac: '#ff3269', on: '#fff', bot: false,
     desc: 'Reads every Zepto category and its sub-categories for your location.', points: ['22 categories plus sub-categories', 'Uses your saved Zepto location', 'Telegram alerts from the browser'] },
-  { name: 'JioMart', repo: 'JioMart-Deals', open: 'https://www.jiomart.com/', host: 'jiomart.com', tag: 'JMQ', hd: '#0078ad', ac: '#ffd43b', on: '#111', bot: false,
-    desc: 'Scans JioMart categories sorted by discount, with inflated list prices filtered out.', points: ['20 categories', 'Uses your saved pincode', 'Telegram alerts from the browser'] },
+  { name: 'JioMart', repo: 'JioMart-Deals', open: 'https://www.jiomart.com/', host: 'jiomart.com', tag: 'JMQ', hd: '#0078ad', ac: '#ffd43b', on: '#111', bot: true,
+    desc: 'Scans JioMart categories sorted by discount, with inflated list prices filtered out.', points: ['20 categories', 'Uses your saved pincode', 'Python Telegram bot (bot-v2)'] },
   { name: 'Myntra', repo: 'Myntra-Deals', open: 'https://www.myntra.com/', host: 'myntra.com', tag: 'MYN', hd: '#d6204e', ac: '#ffe28a', on: '#111', bot: false,
     desc: 'Fashion, footwear, beauty and accessories, sorted by discount.', points: ['35 categories', 'No sign-in needed', 'Telegram alerts from the browser'] },
   { name: 'Croma', repo: 'Croma-Deals', open: 'https://www.croma.com/', host: 'croma.com', tag: 'CRM', hd: '#11161f', ac: '#12daa8', on: '#111', bot: false,
@@ -47,3 +47,34 @@ const out = tpl.replace('__UNIVERSAL__', () => attr(universal)).replace('__CHIPS
 fs.writeFileSync(path.join(__dirname, 'index.html'), out);
 fs.writeFileSync(path.join(__dirname, 'universal-bookmark.txt'), universal);
 console.log('index.html built · universal bookmark:', universal.length, 'chars');
+
+// ── Compare page (compare.html) ──────────────────────────────────────
+// Sample comparison: one product across all nine stores, ranked by
+// discount. Prices are illustrative, not live — the page says so, and the
+// working part is the CSV-paste table: each store's Hunter exports the
+// same CSV columns, so pasted exports merge into one ranked table.
+const SAMPLE_PRODUCT = 'boAt Airdopes 141';
+const SAMPLE = [
+  { store: 'Amazon Now', price: 1199, mrp: 2990 },
+  { store: 'Flipkart Minutes', price: 1249, mrp: 2990 },
+  { store: 'Croma', price: 1299, mrp: 2990 },
+  { store: 'JioMart', price: 1349, mrp: 2990 },
+  { store: 'Zepto', price: 1379, mrp: 2990 },
+  { store: 'Blinkit', price: 1399, mrp: 2990 },
+  { store: 'Swiggy Instamart', price: 1429, mrp: 2990 },
+  { store: 'BigBasket', price: 1449, mrp: 2990 },
+  { store: 'Myntra', price: 1499, mrp: 2990 }
+].map(r => Object.assign({}, r, {
+  disc: Math.round((r.mrp - r.price) / r.mrp * 100),
+  save: r.mrp - r.price,
+  open: (STORES.find(s => s.name === r.store) || {}).open || '#'
+})).sort((a, b) => b.disc - a.disc || a.price - b.price);
+const inr = n => '₹' + n.toLocaleString('en-IN');
+const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const compareRows = SAMPLE.map((r, i) =>
+  `<tr data-disc="${r.disc}" data-store="${escHtml(r.store)}" class="${i === 0 ? 'best' : ''}"><td><span class="rank">${i + 1}</span></td><td><b>${escHtml(SAMPLE_PRODUCT)}</b></td><td>${escHtml(r.store)}</td><td><b>${inr(r.price)}</b></td><td>${inr(r.mrp)}</td><td class="disc">${r.disc}%</td><td>${inr(r.save)}</td><td><a href="${r.open}" target="_blank" rel="noopener">Open store</a></td></tr>`).join('\n      ');
+const storeOptions = STORES.map(s => `<option value="${escHtml(s.name)}">${escHtml(s.name)}</option>`).join('\n      ');
+const compareTpl = fs.readFileSync(path.join(__dirname, 'src/compare.tpl.html'), 'utf8');
+const compareOut = compareTpl.replace('__COMPARE_ROWS__', () => compareRows).replace('__STORE_OPTIONS__', () => storeOptions);
+fs.writeFileSync(path.join(__dirname, 'compare.html'), compareOut);
+console.log('compare.html built ·', SAMPLE.length, 'sample rows, best:', SAMPLE[0].store, SAMPLE[0].disc + '% off');
