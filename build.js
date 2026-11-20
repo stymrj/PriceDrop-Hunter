@@ -1,7 +1,7 @@
 // Builds index.html from src/index.tpl.html and the store list below.
 // Usage: node build.js
 const fs = require('fs'), path = require('path');
-const PAGES = 'https://stymrj.github.io/';
+const PAGES = 'http://satyamraj.in/';
 
 const STORES = [
   { name: 'Flipkart Minutes', repo: 'Flipkart-Minute-Deals', open: 'https://www.flipkart.com/', host: 'flipkart.com', tag: 'FKM', hd: '#2874f0', ac: '#ffe500', on: '#111', bot: true,
@@ -31,7 +31,7 @@ const page = s => PAGES + s.repo + '/';
 
 // Universal bookmark: picks the store from the hostname and loads that tool's latest build.
 const map = STORES.map(s => `'${s.host}':['${s.repo}','${s.tag}']`).join(',');
-const universalJs = `(function(){var m={${map}},h=location.hostname,k=Object.keys(m).filter(function(d){return h===d||h.slice(-d.length-1)==='.'+d})[0];if(!k){alert('Open a supported store (Flipkart Minutes, Blinkit, Amazon Now, Instamart, BigBasket, Zepto, JioMart, Myntra or Croma), then use PriceDrop Hunter again.');return}var bl={'bigbasket.com':['BigBasket','BigBasket-Deals'],'croma.com':['Croma','Croma-Deals']}[k];if(bl){alert(bl[0]+' blocks tools loaded from other sites. Use the '+bl[0]+' bookmark or userscript from stymrj.github.io/'+bl[1]+' instead.');return}var g=window['__'+m[k][1]+'__'];if(g)return g.toggle();fetch('${PAGES}'+m[k][0]+'/dist/deals.js?'+Date.now()).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.text()}).then(function(t){(0,eval)(t)}).catch(function(e){alert('PriceDrop Hunter could not load: '+e.message)})})()`;
+const universalJs = `(function(){var m={${map}},h=location.hostname,k=Object.keys(m).filter(function(d){return h===d||h.slice(-d.length-1)==='.'+d})[0];if(!k){alert('Open a supported store (Flipkart Minutes, Blinkit, Amazon Now, Instamart, BigBasket, Zepto, JioMart, Myntra or Croma), then use PriceDrop Hunter again.');return}var bl={'bigbasket.com':['BigBasket','BigBasket-Deals'],'croma.com':['Croma','Croma-Deals']}[k];if(bl){alert(bl[0]+' blocks tools loaded from other sites. Use the '+bl[0]+' bookmark or userscript from satyamraj.in/'+bl[1]+' instead.');return}var g=window['__'+m[k][1]+'__'];if(g)return g.toggle();fetch('${PAGES}'+m[k][0]+'/dist/deals.js?'+Date.now()).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.text()}).then(function(t){(0,eval)(t)}).catch(function(e){alert('PriceDrop Hunter could not load: '+e.message)})})()`;
 const universal = 'javascript:' + universalJs.replace(/%/g, '%25').replace(/#/g, '%23');
 
 const chips = STORES.map(s => `<a class="chip" href="${page(s)}" style="background:${s.hd}"><span class="dot" style="background:${s.ac};color:${s.on}">${ARROW}</span><span>${s.name}<small>${s.host}</small></span><span class="go">${NEXT}</span></a>`).join('\n      ');
