@@ -2,13 +2,13 @@
 
 One bookmark for nine Indian quick-commerce and shopping stores. Find the biggest discounts, track price drops, and get Telegram alerts. It runs in your own browser: nothing to sign up for, nothing uploaded.
 
-**Live page:** https://stymrj.github.io/PriceDrop-Hunter/
+**Live page:** http://satyamraj.in/PriceDrop-Hunter/
 
 **Version:** 2.1.0 (8 November 2026) — see [CHANGELOG.md](CHANGELOG.md).
 
 ## Compare across all nine stores
 
-New in v2.1: the **[compare page](https://stymrj.github.io/PriceDrop-Hunter/compare.html)** puts the same product or keyword across all nine stores in one table, ranked by discount.
+New in v2.1: the **[compare page](http://satyamraj.in/PriceDrop-Hunter/compare.html)** puts the same product or keyword across all nine stores in one table, ranked by discount.
 
 - **Sample table** — one product (boAt Airdopes 141) across all nine stores, ranked by discount, with a keyword filter. The prices are illustrative, not live; the page says so.
 - **Paste CSV exports** — the working part. Every store's Hunter exports the same CSV columns, so paste each store's export (one store at a time, pick the store first) and the page merges them into one ranked table, saved in your browser only. Rows de-dupe per store + product, keeping the best discount.
@@ -20,15 +20,15 @@ Every store has a v2 release on the `v2` branch of its repo: the current fetch l
 
 | Store | Live page | Repo | Install |
 | --- | --- | --- | --- |
-| Amazon Now | https://stymrj.github.io/Amazon-Now-Deals/ | https://github.com/stymrj/Amazon-Now-Deals | [Install page](https://stymrj.github.io/Amazon-Now-Deals/) |
-| Blinkit | https://stymrj.github.io/Blinkit-Deals/ | https://github.com/stymrj/Blinkit-Deals | [Install page](https://stymrj.github.io/Blinkit-Deals/) |
-| Flipkart Minutes | https://stymrj.github.io/Flipkart-Minute-Deals/ | https://github.com/stymrj/Flipkart-Minute-Deals | [Install page](https://stymrj.github.io/Flipkart-Minute-Deals/) |
-| BigBasket | https://stymrj.github.io/BigBasket-Deals/ | https://github.com/stymrj/BigBasket-Deals | [Install page](https://stymrj.github.io/BigBasket-Deals/) |
-| Zepto | https://stymrj.github.io/Zepto-Deals/ | https://github.com/stymrj/Zepto-Deals | [Install page](https://stymrj.github.io/Zepto-Deals/) |
-| Swiggy Instamart | https://stymrj.github.io/Swiggy-Instamart-Deals/ | https://github.com/stymrj/Swiggy-Instamart-Deals | [Install page](https://stymrj.github.io/Swiggy-Instamart-Deals/) |
-| Myntra | https://stymrj.github.io/Myntra-Deals/ | https://github.com/stymrj/Myntra-Deals | [Install page](https://stymrj.github.io/Myntra-Deals/) |
-| Croma | https://stymrj.github.io/Croma-Deals/ | https://github.com/stymrj/Croma-Deals | [Install page](https://stymrj.github.io/Croma-Deals/) |
-| JioMart | https://stymrj.github.io/JioMart-Deals/ | https://github.com/stymrj/JioMart-Deals | [Install page](https://stymrj.github.io/JioMart-Deals/) |
+| Amazon Now | http://satyamraj.in/Amazon-Now-Deals/ | https://github.com/stymrj/Amazon-Now-Deals | [Install page](http://satyamraj.in/Amazon-Now-Deals/) |
+| Blinkit | http://satyamraj.in/Blinkit-Deals/ | https://github.com/stymrj/Blinkit-Deals | [Install page](http://satyamraj.in/Blinkit-Deals/) |
+| Flipkart Minutes | http://satyamraj.in/Flipkart-Minute-Deals/ | https://github.com/stymrj/Flipkart-Minute-Deals | [Install page](http://satyamraj.in/Flipkart-Minute-Deals/) |
+| BigBasket | http://satyamraj.in/BigBasket-Deals/ | https://github.com/stymrj/BigBasket-Deals | [Install page](http://satyamraj.in/BigBasket-Deals/) |
+| Zepto | http://satyamraj.in/Zepto-Deals/ | https://github.com/stymrj/Zepto-Deals | [Install page](http://satyamraj.in/Zepto-Deals/) |
+| Swiggy Instamart | http://satyamraj.in/Swiggy-Instamart-Deals/ | https://github.com/stymrj/Swiggy-Instamart-Deals | [Install page](http://satyamraj.in/Swiggy-Instamart-Deals/) |
+| Myntra | http://satyamraj.in/Myntra-Deals/ | https://github.com/stymrj/Myntra-Deals | [Install page](http://satyamraj.in/Myntra-Deals/) |
+| Croma | http://satyamraj.in/Croma-Deals/ | https://github.com/stymrj/Croma-Deals | [Install page](http://satyamraj.in/Croma-Deals/) |
+| JioMart | http://satyamraj.in/JioMart-Deals/ | https://github.com/stymrj/JioMart-Deals | [Install page](http://satyamraj.in/JioMart-Deals/) |
 
 No CDN loader for the v2 branch (see below):
 
@@ -39,11 +39,11 @@ There is no CDN loader for the `v2` branch: the old jsDelivr form (`…/JioMart-
 - All nine store tools updated to their current fetch layers, with the blank-results fix (fetched items must actually render as cards in the results tab) and a regression test per store that parses a sample payload and checks the rendered card count.
 - JioMart gains a standalone Python Telegram bot (`bot-v2/` in the JioMart-Deals repo) — fetcher + SQLite history + deal differ + notifier — for alerts around the clock without a browser.
 - This hub page now lists all nine v2 repos with live pages, repo links and install pages, and the install guide below covers the universal bookmark.
-- Install video: [watch the walkthrough (MP4)](https://stymrj.github.io/PriceDrop-Hunter/media/install-demo.mp4) · [GIF](https://stymrj.github.io/PriceDrop-Hunter/media/install-demo.gif) · [poster](https://stymrj.github.io/PriceDrop-Hunter/media/install-demo-poster.jpg)
+- Install video: [watch the walkthrough (MP4)](http://satyamraj.in/PriceDrop-Hunter/media/install-demo.mp4) · [GIF](http://satyamraj.in/PriceDrop-Hunter/media/install-demo.gif) · [poster](http://satyamraj.in/PriceDrop-Hunter/media/install-demo-poster.jpg)
 
 ## What changed in v2.1 (8 November 2026)
 
-- **Compare page** ([compare.html](https://stymrj.github.io/PriceDrop-Hunter/compare.html)): same product/keyword across all nine stores in one table, ranked by discount — a sample table with illustrative prices, a working paste-CSV mode that merges each store's Hunter export into one ranked table (browser-only), and six live-test steps for a real comparison. Tested with `node test-compare.js`.
+- **Compare page** ([compare.html](http://satyamraj.in/PriceDrop-Hunter/compare.html)): same product/keyword across all nine stores in one table, ranked by discount — a sample table with illustrative prices, a working paste-CSV mode that merges each store's Hunter export into one ranked table (browser-only), and six live-test steps for a real comparison. Tested with `node test-compare.js`.
 - **JioMart v2.1** (see that repo's CHANGELOG): empty-state diagnostics that name the cause of 0 results, a built-in self-test button, retry with exponential backoff, deeper scans with per-page progress, a cross-category best-value row, multi-keyword search, and bot multi-pincode scans + CSV/JSON export.
 - **Bookmark name fixed (2026-11-09):** the universal install button now reads **PriceDrop Hunter — All Stores** instead of the generic “PriceDrop Hunter”, so it no longer collides with the nine per-store bookmarks.
 - **Fixed (2026-11-09):** store-card counts corrected against the v2 code — Flipkart Minutes has 12 departments (not 14), BigBasket 9 categories (not 13), Myntra 10 categories (not 35), Amazon Now 34 keywords and 12 categories (not “35+ keywords and categories”). The dead jsDelivr loader (`…@v2/dist/deals.js`, which answers 404 because jsDelivr reads `@v2` as a version range) was removed from the hub page and README, with no CDN loader replacing it yet. The universal bookmark is about 1,200 characters, not “a few hundred”. JioMart's card now says its Python bot runs on GitHub Actions (hourly), not “run it on your own machine or a free host”.
