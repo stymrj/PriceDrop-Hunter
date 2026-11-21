@@ -1,7 +1,7 @@
 // Builds index.html from src/index.tpl.html and the store list below.
 // Usage: node build.js
 const fs = require('fs'), path = require('path');
-const PAGES = 'http://satyamraj.in/';
+const PAGES = 'https://satyamraj.in/';
 
 const STORES = [
   { name: 'Flipkart Minutes', repo: 'Flipkart-Minute-Deals', open: 'https://www.flipkart.com/', host: 'flipkart.com', tag: 'FKM', hd: '#2874f0', ac: '#ffe500', on: '#111', bot: true,
